@@ -82,7 +82,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Pull Docker image
-        run: docker pull awsDemo2/repository:tag
+        run: docker pull aws-demo1/repository:tag
  
       - name: Configure AWS Credentials
         run: |
