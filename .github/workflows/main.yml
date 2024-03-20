@@ -80,9 +80,9 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-        
+
       - name: Pull Docker image
-        run: docker pull owner/repository:tag
+        run: docker pull meherfatima123/repository:tag
       
       
       - name: Pull latest images
