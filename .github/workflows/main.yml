@@ -52,7 +52,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
+          ECR_REPOSITORY: ${{secrets.ECR_REPOSITORY_NAME }}
           IMAGE_TAG: latest
         run: |
           # Build a docker container and
@@ -83,6 +83,11 @@ jobs:
 
       - name: Pull Docker image
         run: docker pull awsDemo2/repository:tag
+ 
+      - name: Configure AWS Credentials
+        run: |
+                aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       
       
       - name: Pull latest images
